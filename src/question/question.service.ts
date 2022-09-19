@@ -19,10 +19,15 @@ export class QuestionService {
   async create(userData: any, createQuestionDto: CreateQuestionDto) {
     try {
 
-      await this.questionRepository.insert({
+      const questionResult = await this.questionRepository.insert({
         author_id: userData.userId,
         question_body: createQuestionDto.question_body,
         question_title: createQuestionDto.question_title,
+      });
+
+      await this.questionCategoryRepository.insert({
+        category_id: createQuestionDto.category_id,
+        question_id: questionResult.identifiers[0].id,
       });
 
       return { msg: 'Question was uploaded!' };

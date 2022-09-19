@@ -80,9 +80,11 @@ $ npm run start:dev
 ```
 
 #### Example
+Call
 ```
 http://localhost:3000/category
 ```
+Response
 ```
 [
   {
@@ -94,12 +96,13 @@ http://localhost:3000/category
 ```
 
 #### 2. Get all question by category id
+You need the 1. request id value for category_id parameter
 
 | Path | parameters |
 | :--- | :--- |
-`http://localhost:3000/question/byCategoryID/[category_id]` | `category_id (you can get it from 1. request)` |
+`http://localhost:3000/question/byCategoryID/[category_id]` | `category_id: number` |
 
-##### Responses
+##### Response
 ```
 [
   {
@@ -113,9 +116,11 @@ http://localhost:3000/category
 ```
 
 #### Example
+Call
 ```
 http://localhost:3000/question/byCategoryID/1
 ```
+Response
 ```
 [
   {
@@ -129,12 +134,13 @@ http://localhost:3000/question/byCategoryID/1
 ```
 
 #### 3. Get a question with all of it answers
+You need the 2. request id value for question_id parameter
 
 | Path | parameters |
 | :--- | :--- |
-`http://localhost:3000/question/[question_id]` | `question_id (you can get it from 2. request)` |
+`http://localhost:3000/question/[question_id]` | `question_id: number` |
 
-##### Responses
+##### Response
 ```
 {
   "id": number,
@@ -156,9 +162,11 @@ http://localhost:3000/question/byCategoryID/1
 ```
 
 #### Example
+Call
 ```
 http://localhost:3000/question/1
 ```
+Response
 ```
 {
   "id": 1,
@@ -185,7 +193,7 @@ http://localhost:3000/question/1
 
 | Path | parameters |
 | :--- | :--- |
-`http://localhost:3000/auth/signup` | `username: string, password: string, email: string, gender: string`|
+`http://localhost:3000/auth/signup` | `username: string`<br>`password: string`<br>`email: string`<br>`gender: string`|
 
 #### Response
 ```
@@ -195,17 +203,20 @@ http://localhost:3000/question/1
 ```
 
 #### Example
+Call
 ```
 http://localhost:3000/auth/signup
-
+```
+Parameters
+```
 {
   "username": "Alex",
   "password": "AlexSecurePassword",
   "email": "alexemail@email.com",
   "gender": "male"
 }
-
 ```
+Response
 ```
   {
     "msg": "Signed up successfully!"
@@ -216,7 +227,7 @@ http://localhost:3000/auth/signup
 
 | Path | parameters |
 | :--- | :--- |
-`http://localhost:3000/auth/login` | `username: string, password: string` |
+`http://localhost:3000/auth/login` | `username: string`<br>`password: string` |
 
 #### Response
 ```
@@ -226,12 +237,125 @@ http://localhost:3000/auth/signup
 ```
 
 #### Example
+Call
 ```
 http://localhost:3000/auth/login
 ```
+Parameters
+```
+{
+  "username": "Alex",
+  "password": "AlexSecurePassword",
+}
+```
+Response
 ```
 {
     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2...",
+}
+```
+
+#### 2. Create question
+You need to use your <b>Bearer token</b><br>
+You need the 1. request id value for category_id
+
+| Path | parameters |
+| :--- | :--- |
+`http://localhost:3000/question/create` | `question_title: string`<br>`question_body: string`<br>`category_id: number` |
+
+#### Response
+```
+{
+    "msg": string
+}
+```
+
+#### Example
+Call
+```
+http://localhost:3000/question/create
+```
+Parameters
+```
+{
+ "question_title": "What do you think, which team is going to win tonight?"
+ "question_body": "I am courios about people thoughts, so explain yourself."
+ "category_id": 4
+}
+```
+Response
+```
+{
+    "msg": "Question was uploaded!"
+}
+```
+
+#### 3. Answer Question
+You need to use your <b>Bearer token</b><br>
+You need the 3. request id value for question_id
+
+| Path | parameters |
+| :--- | :--- |
+`http://localhost:3000/question/answer` | `question_title: string`<br>`question_body: string`<br>`category_id: number` |
+
+#### Response
+```
+{
+    "msg": string
+}
+```
+
+#### Example
+Call
+```
+http://localhost:3000/question/answer
+```
+Parameters
+```
+{
+    "question_id": 1,
+    "answer_body": "I guess the home team will win, they are unstoppable this season"
+}
+```
+Response
+```
+{
+    "msg": "Answer was uploaded successfully!"
+}
+```
+
+
+#### 4. Like/Dislike an answer
+You need to use your <b>Bearer token</b><br>
+You need an id value of an answer, you can have it from the 3. request
+
+| Path | parameters |
+| :--- | :--- |
+`http://localhost:3000/question/answer` | `answer_id: number`<br>`isLike: boolean` |
+
+#### Response
+```
+{
+    "msg": string
+}
+```
+
+#### Example
+Call
+```
+http://localhost:3000/question/answer
+```
+Parameters
+```
+{
+    "question_id": 1,
+    "answer_body": "I guess the home team will win, they are unstoppable this season"
+}
+```
+Response
+```
+{
+    "msg": "Answer was uploaded successfully!"
 }
 ```
 

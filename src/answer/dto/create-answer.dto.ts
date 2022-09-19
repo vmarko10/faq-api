@@ -1,8 +1,9 @@
-import { IsNotEmpty, MaxLength, MinLength } from "class-validator";
+import { IsNotEmpty, IsNumber, MaxLength, MinLength } from "class-validator";
 
 export class CreateAnswerDto {
 
     @IsNotEmpty()
+    @IsNumber()
     question_id: number;
 
     @IsNotEmpty()
