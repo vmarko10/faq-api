@@ -218,9 +218,9 @@ Parameters
 ```
 Response
 ```
-  {
-    "msg": "Signed up successfully!"
-  },
+{
+  "msg": "Signed up successfully!"
+},
 ```
 
 #### 2. Login
@@ -232,7 +232,7 @@ Response
 #### Response
 ```
 {
-    "accessToken": string,
+  "accessToken": string,
 }
 ```
 
@@ -251,7 +251,7 @@ Parameters
 Response
 ```
 {
-    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2...",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2...",
 }
 ```
 
@@ -266,7 +266,7 @@ You need the 1. request id value for category_id
 #### Response
 ```
 {
-    "msg": string
+  "msg": string
 }
 ```
 
@@ -286,7 +286,7 @@ Parameters
 Response
 ```
 {
-    "msg": "Question was uploaded!"
+  "msg": "Question was uploaded!"
 }
 ```
 
@@ -301,7 +301,7 @@ You need the 3. request id value for question_id
 #### Response
 ```
 {
-    "msg": string
+  "msg": string
 }
 ```
 
@@ -313,14 +313,14 @@ http://localhost:3000/question/answer
 Parameters
 ```
 {
-    "question_id": 1,
-    "answer_body": "I guess the home team will win, they are unstoppable this season"
+  "question_id": 1,
+  "answer_body": "I guess the home team will win, they are unstoppable this season"
 }
 ```
 Response
 ```
 {
-    "msg": "Answer was uploaded successfully!"
+  "msg": "Answer was uploaded successfully!"
 }
 ```
 
@@ -336,7 +336,7 @@ You need an id value of an answer, you can have it from the 3. request
 #### Response
 ```
 {
-    "msg": string
+  "msg": string
 }
 ```
 
@@ -348,14 +348,14 @@ http://localhost:3000/question/answer
 Parameters
 ```
 {
-    "question_id": 1,
-    "answer_body": "I guess the home team will win, they are unstoppable this season"
+  "question_id": 1,
+  "answer_body": "I guess the home team will win, they are unstoppable this season"
 }
 ```
 Response
 ```
 {
-    "msg": "Answer was uploaded successfully!"
+  "msg": "Answer was uploaded successfully!"
 }
 ```
 
