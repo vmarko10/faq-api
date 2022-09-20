@@ -25,6 +25,7 @@ I used postgresql as database.<br>
  - answer a question<br>
  - like or dislike an answer<br>
 
+The Jwt expire is set to 1 hour<br>
 The question categories are static.<br>
 For testing, there are 2 user in the database you can use. There is a question, answer and like/dislike registered in the db, so you can request it already.<br>
 For request data, you don't need to be signed in, only for the post actions.<br>
