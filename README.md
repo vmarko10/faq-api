@@ -59,9 +59,7 @@ $ CREATE USER faquser WITH PASSWORD 'faqpass';
 
 ### Restore database from faq_database.sql file.
 
-If you use a remote server:<br>
- - change 'localhost' to your host and '5432' to your port,
- - change '/ormconfig.ts'
+If you use a remote server, change 'localhost' to your host and '5432' to your port in the command below and in the '.env' file.
 
 ```bash
 $ psql -U faquser -h localhost -p 5432 faq < "[your path]/faq-api/faq_database.sql"
