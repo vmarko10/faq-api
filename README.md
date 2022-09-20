@@ -356,7 +356,7 @@ You need an id value of an answer, you can have it from the 3. request
 
 | Path | parameters |
 | :--- | :--- |
-`http://localhost:3000/question/answer` | `answer_id: number`<br>`isLike: boolean` |
+`http://localhost:3000/like` | `answer_id: number`<br>`isLike: boolean` |
 
 #### Response
 ```
@@ -368,19 +368,19 @@ You need an id value of an answer, you can have it from the 3. request
 #### Example
 Call
 ```
-http://localhost:3000/question/answer
+http://localhost:3000/like
 ```
 Parameters
 ```
 {
-  "question_id": 1,
-  "answer_body": "I guess the home team will win, they are unstoppable this season"
+  "answer_id": 1,
+  "isLike": true
 }
 ```
 Response
 ```
 {
-  "msg": "Answer was uploaded successfully!"
+  "msg": "Like was uploaded successfully!"
 }
 ```
 
