@@ -26,7 +26,7 @@ I used postgresql as database.<br>
  - like or dislike an answer<br>
 
 The question categories are static.<br>
-For testing, there are 2 user in the database you can use. There are some question, answer and like/dislike registered to them, so you can request them already.<br>
+For testing, there are 2 user in the database you can use. There is a question, answer and like/dislike registered in the db, so you can request it already.<br>
 For request data, you don't need to be signed in, only for the post actions.<br>
 
 The 2 test users:<br>
@@ -44,6 +44,8 @@ The 2 test users:<br>
   password: erzsiPass
 }
 ```
+
+The registered question_id: 1
 
 ## Database restore
 
