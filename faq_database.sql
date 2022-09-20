@@ -215,7 +215,7 @@ COPY public.likes (id, author_id, answer_id, islike) FROM stdin;
 --
 
 COPY public.question (id, author_id, question_title, question_body) FROM stdin;
-1	2	What do you think, which team is going to win tonight?	I am courios about people thoughts, so explain yourself.
+1	2	What do you think, which team is going to win tonight?	I am corious about people thoughts, so explain yourself.
 \.
 
 
