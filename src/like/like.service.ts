@@ -14,6 +14,7 @@ export class LikeService {
     private answerService: AnswerService
   ) {}
 
+  // register a like/dislike in like table
   async create(userData: any, createLikeDto: CreateLikeDto) {
     try {
       await this.likeRepository.insert({
@@ -22,6 +23,7 @@ export class LikeService {
         islike: createLikeDto.isLike
       });
 
+      // increment the like_count/dislike_count column of the answer
       if (createLikeDto.isLike)
         this.answerService.incrementLike(createLikeDto.answer_id)
       else
@@ -43,7 +45,4 @@ export class LikeService {
 
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} like`;
-  }
 }

@@ -11,14 +11,17 @@ export class AnswerService {
     private answerRepository: Repository<Answer>
   ) {}
 
+  // increment like_count column of an answer
   async incrementLike(id: number) {
     return this.answerRepository.increment({id: id}, 'like_count', 1);
   }
 
+  // increment dislike_count column of an answer
   async incrementDislike(id: number) {
     return this.answerRepository.increment({id: id}, 'dislike_count', 1);
   }
 
+  // insert an inswer into answer table
   async create(userData, createAnswerDto: CreateAnswerDto) {
     
     try {
@@ -37,6 +40,7 @@ export class AnswerService {
     }
   }
 
+  // find all answer related to a question by id
   findByQuestionID(id: number) {
     return this.answerRepository.find({
       where: {

@@ -16,6 +16,7 @@ export class QuestionService {
 
   ) { }
 
+  // insert a question into question table
   async create(userData: any, createQuestionDto: CreateQuestionDto) {
     try {
 
@@ -25,6 +26,7 @@ export class QuestionService {
         question_title: createQuestionDto.question_title,
       });
 
+      // insert the category of the question into question category
       await this.questionCategoryRepository.insert({
         category_id: createQuestionDto.category_id,
         question_id: questionResult.identifiers[0].id,
@@ -37,15 +39,18 @@ export class QuestionService {
     }
   }
 
+  // find all question by category id
   async findByCategoryID(id: number) {
 
+    // get all question id by category_id column
     const question_id_arr = await this.questionCategoryRepository.find({
       where: {
         category_id: id
       }
     })
-      .then(result => result.map(row => row.question_id));
+    .then(result => result.map(row => row.question_id));
 
+    // return all question from `question_id_arr`
     return this.questionRepository.find({
       where: {
         id: In(question_id_arr)
@@ -53,6 +58,7 @@ export class QuestionService {
     });
   }
 
+  // return one question by id column
   async findOne(id: number) {
     const question = await this.questionRepository.findOne({ where: { id: id } });
 

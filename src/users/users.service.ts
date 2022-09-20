@@ -11,18 +11,22 @@ export class UsersService {
         private usersRepository: Repository<Users>
     ) {}
 
+    // find a user by username
     async findOne(username: string): Promise<Users> {
         return this.usersRepository.findOne({ where: { name: username }});
     }
 
+    // insert new user
     async insert(user: authDto) {
         const userExist = await this.findOne(user.username);
 
+        // if username is alread exist, return
         if (userExist) {
             return { msg: "This username already registered. Please choose another." };
         }
 
         try {
+            // insert new user
             this.usersRepository.insert({
                 name: user.username,
                 email: user.email,

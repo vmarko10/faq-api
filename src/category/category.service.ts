@@ -11,6 +11,7 @@ export class CategoryService {
     private categoryRepository: Repository<Category>
   ) { }
 
+  // return the entire  category table
   findAll() {
     return this.categoryRepository.find();
   }

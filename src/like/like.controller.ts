@@ -13,8 +13,4 @@ export class LikeController {
     return this.likeService.create(req.user, createLikeDto);
   }
 
-  @Delete('delete/:id')
-  remove(@Param('id') id: string) {
-    return this.likeService.remove(+id);
-  }
 }
