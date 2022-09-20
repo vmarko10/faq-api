@@ -16,13 +16,22 @@ export class UsersService {
     }
 
     async insert(user: authDto) {
+        const userExist = await this.findOne(user.username);
+
+        if (userExist) {
+            return { msg: "This username already registered. Please choose another." };
+        }
+
         try {
-            return this.usersRepository.insert({
+            this.usersRepository.insert({
                 name: user.username,
                 email: user.email,
                 gender: user.gender,
                 password: user.password,
             });
+
+            return { msg: 'Signup was successfully!' }
+            
         } catch (error) {
             return { msg: 'Unexpected error under signup!' }
         }

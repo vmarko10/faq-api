@@ -30,7 +30,7 @@ export class QuestionService {
         question_id: questionResult.identifiers[0].id,
       });
 
-      return { msg: 'Question was uploaded!' };
+      return { msg: 'Question was uploaded successfully!' };
     } catch (error) {
       console.log(error);
       return { msg: 'Unexpected error!' }
@@ -49,7 +49,7 @@ export class QuestionService {
     return this.questionRepository.find({
       where: {
         id: In(question_id_arr)
-      }
+      },
     });
   }
 

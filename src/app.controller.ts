@@ -12,16 +12,12 @@ export class AppController {
 
   @Post('auth/signup')
   async signup(@Body() body: authDto) {
-    console.log(body);
-    
     return this.authService.signup(body);
   }
 
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req) {
-    console.log(req);
-
     return this.authService.login(req.user);
   }
 

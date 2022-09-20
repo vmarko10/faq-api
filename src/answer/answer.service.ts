@@ -43,7 +43,7 @@ export class AnswerService {
         question_id: id
       },
       order: {
-        id: "DESC"
+        id: "ASC"
       }
     })
   }
