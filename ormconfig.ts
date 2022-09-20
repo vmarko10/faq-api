@@ -5,6 +5,8 @@ const config: PostgresConnectionOptions = {
     database: "faq",
     username: "faquser",
     password: "faqpass",
+    // host: localhost,
+    // port: 5432,
     entities: ['dist/src/**/*.entity.js']
 }
 

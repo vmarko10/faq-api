@@ -25,6 +25,26 @@ I used postgresql as database.<br>
  - answer a question<br>
  - like or dislike an answer<br>
 
+The question categories are static.<br>
+For testing, there are 2 user in the database you can use. There are some question, answer and like/dislike registered to them, so you can request them already.<br>
+For request data, you don't need to be signed in, only for the post actions.<br>
+
+The 2 test users:<br>
+
+```
+// user 1
+{
+  username: bill
+  password: BillPass
+}
+
+// user 2
+{
+  username: erzsi
+  password: erzsiPass
+}
+```
+
 ## Database restore
 
 ### Create a user and a database in postgresql.
@@ -36,7 +56,9 @@ $ CREATE USER faquser WITH PASSWORD 'faqpass';
 
 ### Restore database from faq_database.sql file.
 
-If you use a remote server, then change 'localhost' to your host and '5432' to your port.
+If you use a remote server:<br>
+ - change 'localhost' to your host and '5432' to your port,
+ - change '/ormconfig.ts'
 
 ```bash
 $ psql -U faquser -h localhost -p 5432 faq < "[your path]/faq-api/faq_database.sql"
