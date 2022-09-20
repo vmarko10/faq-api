@@ -6,7 +6,7 @@
 
 ## Overview <a name="overview">
 
-This api is created for a frequently asked quetions site.<br>
+This api is created for a frequently asked quetions site with nestjs.<br>
 I used postgresql as database.<br>
 
 ### Features
